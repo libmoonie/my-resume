@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 - 你的姓名</title>
+    <!-- 引入CSS样式（后续第三步编写） -->
+    <link rel="stylesheet" href="resume.css">
+</head>
+
+<body>
+    <div class="resume-container"><!-- 头部：头像+姓名+求职意向 -->
+
+        <div class="name">
+            <h1>你的姓名</h1>
+        </div>
+        <div class="resume-header">
+            <div class="header-info">
+                <br>
+                <br>
+                <p class="job-intention">求职意向：前端开发实习生</p>
+                <!-- JS交互：主题切换按钮 -->
+                <button id="themeBtn">切换主题</button>
+            </div>
+            <div class="avatar">
+                <img src="miao.gif" alt="个人头像">
+                <!-- 无头像可删除这行 -->
+            </div>
+
+        </div>
+        <!-- 个人信息 -->
+        <section class="personal-info">
+            <h2><span>01</span> 个人信息</h2>
+            <ul>
+                <li><strong>电话：</strong>1xxxxxxxx</li>
+                <li><strong>邮箱：</strong>1xxxx@qq.com</li>
+                <li><strong>微信号：</strong>xxxxxxx</li>
+                <li><strong>base: </strong>上海</li>
+            </ul>
+        </section>
+        <!-- 教育经历 -->
+        <section class="education">
+            <h2><span>02</span> 教育经历</h2>
+            <div class="edu-item">
+                <div class="edu-time">2023.09 - 2027.06</div>
+                <div class="edu-content"> XX大学 XX专业 </div>
+                <div class="edu-height">本科</div>
+            </div>
+            <div class="edu-item2">
+                <div class="edu-win">荣誉：校级三好学生、一等奖学金（无则删除）</div>
+            </div>
+            <!-- 多段教育经历可复制上面的.edu-item，修改内容即可 -->
+
+
+            <!-- 技能清单 -->
+            <section class="skills">
+                <h2><span>03</span> 技能清单</h2>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <span class="skill-name">HTML5</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                        <span class="skill-level">熟练</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">CSS3</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                        <span class="skill-level">熟练</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">JavaScript</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                        <span class="skill-level">良好</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Flex/Grid</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                        <span class="skill-level">良好</span>
+                    </div>
+                    <!-- 可添加其他技能，如PS、Git等，复制上面的skill-item修改即可 -->
+                </div>
+            </section>
+
+            <!-- 项目/实习经历 -->
+            <section class="experience">
+                <h2><span>04</span> 项目/实习经历</h2>
+                <!-- 经历1：可展开/收起详情（JS交互） -->
+                <div class="exp-item">
+                    <div class="exp-header" onclick="toggleExp(this)">
+                        <div class="exp-time">2025.08 - 2025.11</div>
+                        <div class="exp-title">XX公司 前端开发实习生 </div>
+                        <span class="exp-icon">+</span>
+                    </div>
+                    <div class="exp-content" style="display: none;">
+                        <p><strong>工作内容：</strong>1.
+                            协助开发公司官网页面，使用HTML/CSS完成页面布局，适配移动端；2.
+                            用JavaScript实现页面简单交互（如按钮点击、表单验证）；3.
+                            配合后端开发人员，调试接口数据，修复页面bug。</p>
+                        <p><strong>成果：</strong>完成3个页面的开发与优化，页面加载速度提升20%，减少兼容性问题5处。（无成果可删除）
+                        </p>
+                    </div>
+                </div>
+                <!-- 经历2：复制上面的exp-item修改内容 -->
+                <div class="exp-item">
+                    <div class="exp-header" onclick="toggleExp(this)">
+                        <div class="exp-time">202X.03 - 202X.06</div>
+                        <div class="exp-title">个人简历网页项目（本项目）</div>
+                        <span class="exp-icon">+</span>
+                    </div>
+                    <div class="exp-content" style="display: none;">
+                        <p><strong>项目描述：</strong>使用HTML+CSS+JS开发个人简历网页，实现简历信息展示、主题切换、经历展开/收起等功能，适配电脑、手机等不同设备。
+                        </p>
+                        <p><strong>技术栈：</strong>HTML5、CSS3、JavaScript、Flex布局、响应式设计。
+                        </p>
+                        <p><strong>个人职责：</strong>独立完成页面结构搭建、样式美化、交互功能开发，全程自主调试优化。
+                        </p>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-header" onclick="toggleExp(this)">
+                        <div class="exp-time">202X.03 - 202X.06</div>
+                        <div class="exp-title">个人简历网页项目（本项目）</div>
+                        <span class="exp-icon">+</span>
+                    </div>
+                    <div class="exp-content" style="display: none;">
+                        <p><strong>项目描述：</strong>使用HTML+CSS+JS开发个人简历网页，实现简历信息展示、主题切换、经历展开/收起等功能，适配电脑、手机等不同设备。
+                        </p>
+                        <p><strong>技术栈：</strong>HTML5、CSS3、JavaScript、Flex布局、响应式设计。
+                        </p>
+                        <p><strong>个人职责：</strong>独立完成页面结构搭建、样式美化、交互功能开发，全程自主调试优化。
+                        </p>
+                    </div>
+                </div>
+            </section><!-- 自我评价（可选） -->
+            <section class="self-evaluation">
+                <h2><span>05</span> 自我评价</h2>
+                <p>具备扎实的HTML、CSS、JavaScript基础，熟悉Flex/Grid布局和响应式设计，能独立完成简单静态网页开发；学习能力强，善于查阅资料解决问题，对待开发严谨认真，有良好的代码规范和沟通能力，愿意持续深耕前端领域，快速适应团队工作。（替换成你的自我评价）
+                </p>
+            </section>
+    </div> <!-- 引入JS脚本（后续第四步编写） -->
+    <script src="resume.js"></script>
+</body>
+
+</html>

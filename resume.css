@@ -1,0 +1,392 @@
+/* 全局样式重置（避免不同浏览器样式差异） */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei", sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    padding: 20px;
+    /* 主题切换相关（默认浅色主题） */
+    --bg-color: #fff;
+    --text-color: #333;
+    --title-color: #2c3e50;
+    --border-color: #eee;
+    --progress-color: #3498db;
+    --hover-color: #f0f8ff;
+}
+
+/* 深色主题样式（JS切换时生效） */
+body.dark {
+    --bg-color: #1a1a1a;
+    --text-color: #eee;
+    --title-color: #3498db;
+    --border-color: #333;
+    --progress-color: #2ecc71;
+    --hover-color: #2c3e50;
+}
+
+/* 简历容器（居中、限制宽度、背景色） */
+.resume-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--bg-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    /* 主题切换平滑过渡 */
+}
+
+/* 头部样式：头像+姓名+求职意向 */
+.resume-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    /* 左边占满，右边头像固定 */
+    grid-template-rows: auto auto;
+    /* 两行：名字一行 + 求职/头像一行 */
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* 头像自适应，不拉伸 */
+    border: 3px solid var(--progress-color);
+}
+
+.avatar {
+    margin-left: auto;
+    align-self: center;
+}
+
+.header-info h1 {
+    font-size: 28px;
+    color: var(--title-color);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.job-intention {
+    font-size: 16px;
+    color: #666;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* 主题切换按钮 */
+#themeBtn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--progress-color);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+#themeBtn:hover {
+    background-color: #2980b9;
+}
+
+/* 所有 section 标题样式（统一风格） */
+section h2 {
+    font-size: 20px;
+    color: var(--title-color);
+    margin: 25px 0 15px;
+    padding-left: 15px;
+    border-left: 4px solid var(--progress-color);
+    position: relative;
+}
+
+section h2 span {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: var(--progress-color);
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+/* 个人信息样式 */
+.personal-info ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    /* 自适应换行，避免手机端溢出 */
+    gap: 20px;
+    justify-content: space-between;
+    /* 学校左，时间右 */
+    width: 100%;
+    align-items: center;
+    /* 列表项之间的间距 */
+}
+
+.personal-info li {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.personal-info a {
+    color: var(--progress-color);
+    text-decoration: none;
+}
+
+.personal-info a:hover {
+    text-decoration: underline;
+}
+
+/* 教育经历样式 */
+.education {
+    margin-bottom: 20px;
+}
+
+.edu-item {
+    display: flex;
+    padding-bottom: 15px;
+
+}
+
+.edu-time {
+    width: 120px;
+    font-weight: bold;
+    color: var(--title-color);
+}
+
+.edu-content h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.edu-content p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* 技能清单样式 */
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skill-item {
+    width: calc(50% - 10px);
+    /* 一行显示2个技能，自适应宽度 */
+    margin-bottom: 10px;
+}
+
+.skill-name {
+    display: inline-block;
+    width: 80px;
+    font-size: 15px;
+}
+
+.skill-bar {
+    display: inline-block;
+    width: calc(100% - 130px);
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 4px;
+    vertical-align: middle;
+    /* 与文字垂直居中 */
+}
+
+.skill-progress {
+    height: 100%;
+    background-color: var(--progress-color);
+    border-radius: 4px;
+}
+
+.skill-level {
+    display: inline-block;
+    width: 40px;
+    font-size: 14px;
+    text-align: right;
+}
+
+/* 项目/实习经历样式 */
+.exp-item {
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.exp-item:hover {
+    background-color: var(--hover-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    cursor: pointer;
+    /* 点击指针，提示可点击 */
+}
+
+.exp-time {
+    width: 120px;
+    font-weight: bold;
+    color: var(--title-color);
+}
+
+.exp-title {
+    flex: 1;
+    /* 占满中间空间 */
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+.exp-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    color: var(--text-color);
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+    transition: transform 0.3s;
+}
+
+/* 展开详情时，图标旋转 */
+.exp-header.active .exp-icon {
+    transform: rotate(45deg);
+}
+
+.exp-content {
+    padding: 0 15px 15px;
+    font-size: 14px;
+    line-height: 1.6;
+    /* 行高，提升阅读体验 */
+}
+
+.exp-content p {
+    margin-bottom: 8px;
+}
+
+/* 自我评价样式 */
+.self-evaluation p {
+    line-height: 1.8;
+    font-size: 15px;
+    text-indent: 2em;
+    /* 首行缩进2字符，更规范 */
+    opacity: 0.9;
+}
+
+/* 响应式设计（适配手机端，避免横向滚动） */
+@media (max-width: 768px) {
+    .resume-container {
+        padding: 20px 15px;
+    }
+
+    .resume-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .skill-item {
+        width: 100%;
+        /* 手机端一行显示1个技能 */
+    }
+
+    .edu-item,
+    .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .edu-time,
+    .exp-time {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .exp-title {
+        margin: 0;
+    }
+}
+
+/* 打印样式（可选，打印时优化布局） */
+@media print {
+    body {
+        background-color: #fff;
+        padding: 0;
+    }
+
+    .resume-container {
+        box-shadow: none;
+        padding: 0;
+    }
+
+    #themeBtn {
+        display: none;
+        /* 打印时隐藏主题切换按钮 */
+    }
+}
+
+.edu-time {
+    white-space: nowrap;
+    /* 强制不换行 */
+}
+
+.edu-item {
+    display: flex;
+    align-items: center;
+    /* 垂直居中 */
+    justify-content: space-between;
+    /* 学校左，时间右 */
+    width: 100%;
+}
+
+.exp-time {
+    white-space: nowrap;
+}
+
+
+.exp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* 时间在左，图标在右，中间内容占空间 */
+    width: 100%;
+    gap: 100px;
+    /* 元素之间留一点空隙，防止贴死 */
+}
+
+.exp-title {
+    flex: 1;
+    /* 关键：让它占满中间所有剩余空间 */
+    text-align: center;
+    /* 可选：让标题在中间居中显示 */
+    white-space: nowrap;
+    /* 可选：防止标题文字换行 */
+}
+
+.name {
+    grid-column: 1 / -1;
+    /* 让名字占满整行（从第1列到最后1列） */
+    text-align: center;
+    margin: 0;
+    /* 清除h1默认的上下边距 */
+
+}
